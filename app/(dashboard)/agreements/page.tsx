@@ -221,7 +221,7 @@ export default function AgreementsPage() {
                           <SelectValue placeholder="Select mill" />
                         </SelectTrigger>
                         <SelectContent>
-                          {mills.map((mill) => (
+                          {Array.isArray(mills) && mills.map((mill) => (
                             <SelectItem key={mill._id} value={mill._id}>
                               {mill.name} ({mill.mill_code})
                             </SelectItem>
@@ -319,7 +319,7 @@ export default function AgreementsPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {agreements.map((agreement) => (
+              {Array.isArray(agreements) && agreements.map((agreement) => (
                 <TableRow key={agreement._id}>
                   <TableCell className="font-medium">{agreement.agreement_no}</TableCell>
                   <TableCell>{agreement.mill?.name}</TableCell>
